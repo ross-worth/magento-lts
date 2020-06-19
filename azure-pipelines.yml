@@ -43,6 +43,7 @@ steps:
       RELEASE_NOTES.txt
       dev/*
       dev
+      README.md
 
 - task: PublishBuildArtifacts@1
   inputs:
