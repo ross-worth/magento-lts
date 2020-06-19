@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  phpVersion: 5.2
+  phpVersion: 7.2
 
 steps:
 - script: |
@@ -25,6 +25,24 @@ steps:
 - script: composer install --no-interaction --prefer-dist
   displayName: 'composer install'
 
+#Tidy Files
+
+- task: DeleteFiles@1
+  inputs:
+    SourceFolder: '$(system.defaultWorkingDirectory)'
+    contents: |
+      .git/*
+      .git
+      .gitignore
+      azure-pipelines.yml
+      composer.lock
+      LICENSE_AFL.txt
+      LICENSE.html
+      LICENSE.txt
+      php.ini.sample
+      RELEASE_NOTES.txt
+      dev/*
+      dev
 
 - task: PublishBuildArtifacts@1
   inputs:
