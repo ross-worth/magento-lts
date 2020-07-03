@@ -44,11 +44,15 @@ steps:
       dev/*
       dev
       README.md
-- task: PublishBuildArtifacts@1
+
+- task: ArchiveFiles@2
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/deploy.zip'
-    ArtifactName: 'MagentoBase'
-    publishLocation: 'Container'
+    rootFolderOrFile: '$(system.defaultWorkingDirectory)'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/deploy.zip'
+    replaceExistingArchive: true
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)/deploy.zip'
