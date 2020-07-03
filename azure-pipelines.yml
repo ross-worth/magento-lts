@@ -47,12 +47,12 @@ steps:
 
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(system.defaultWorkingDirectory)/a'
+    rootFolderOrFile: '$(system.defaultWorkingDirectory)'
     includeRootFolder: false
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/deploy.zip'
     replaceExistingArchive: true
-
+    verbose: true
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)/deploy.zip'
