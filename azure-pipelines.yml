@@ -47,7 +47,7 @@ steps:
 
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(system.defaultWorkingDirectory)'
+    rootFolderOrFile: '$(system.defaultWorkingDirectory)/a'
     includeRootFolder: false
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/deploy.zip'
